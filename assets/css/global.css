@@ -1,0 +1,27 @@
+header{
+	width: 80%;
+	height: 100px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: #a8bcd9;
+    margin: auto;
+}
+
+.header-container{
+	display: flex; 
+	height: 100%;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+nav a{
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	text-decoration: none;
+	color: white;
+}
+nav a:hover{
+	background-color: #354a75;
+}

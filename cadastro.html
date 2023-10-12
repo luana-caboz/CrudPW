@@ -7,49 +7,59 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/cadastro.css">
+    <link rel="stylesheet" href="assets/css/global.css">
 
 </head>
 
 <body>
+
     <header>
         <div class="header-container">
-            <div class="logo"></div>
-            <nav></nav>
+            <div class="logo">
+				<span>CRUD</span>
+			</div>
+            <nav>
+				<a href="listagem.html">Listagem</a>
+				<a href="cadastro.html">Cadastro</a>
+				<a href="listagem.html">Alteração</a>
+			</nav>
         </div>
     </header>
-    <form>
+    <form id="formSubmit">
         <div class="mb-3">
             <label for="" class="form-label">Nome Completo</label>
-            <input type="nome" class="form-control" id="inputNome1" aria-describedby="nomeHelp">
+            <input type="text" class="form-control" id="inputNome"  required>
             <div id="nomeHelp" class="form-text">Favor não abreviar</div>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Data de Nascimento</label>
-            <input type="date" class="form-control" id="inputDataNascimento" aria-describedby="">
+            <input type="date" class="form-control" id="inputDataNascimento" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Endereço de email</label>
-            <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="inputEmail1" required>
             <div id="emailHelp" class="form-text">Nunca compartilharemos seu email com mais ninguém.</div>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">CPF</label>
-            <input type="text" class="form-control" id="inputCPF1" aria-describedby="inputCPF1">
+            <input type="text" class="form-control" id="inputCPF1" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="inputPassword1">
+            <input type="password" class="form-control" id="inputPassword1" required>
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="check1">
+            <input type="checkbox" class="form-check-input" id="check1" required>
             <label class="form-check-label" for="">Aceito os Termos e a Política de Privacidade</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" id="btnEnviar">Cadastro</button>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+		
+		<script src="assets/js/script.js"> </script>
 </body>
 
 </html>
