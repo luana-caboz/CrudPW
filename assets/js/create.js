@@ -1,9 +1,10 @@
+
 document.querySelector('#btnEnviar').addEventListener('click', () => {
-    let nome = document.querySelector('#inputNome').value
-    let DataNascimento = document.querySelector('#inputDataNascimento').value
-    let email = document.querySelector('#inputEmail1').value
-    let cpf = document.querySelector('#inputCPF1').value
-    let senha = document.querySelector('#inputPassword1').value
+    let nome = document.querySelector('#inputNome').value;
+    let DataNascimento = document.querySelector('#inputDataNascimento').value;
+    let email = document.querySelector('#inputEmail1').value;
+    let cpf = document.querySelector('#inputCPF1').value;
+    let senha = document.querySelector('#inputPassword1').value;
 
     if(nome == ""){
        alert("Preencha o nome") 
@@ -29,7 +30,10 @@ document.querySelector('#btnEnviar').addEventListener('click', () => {
         return;
     }
 
+    let arr = JSON.parse(localStorage.getItem('pessoa')) || [];
+
     const usuario = {
+        id: Math.floor(Math.random() * 100),
         nome: nome,
         DataNascimento: DataNascimento,
         email: email,
@@ -37,18 +41,10 @@ document.querySelector('#btnEnviar').addEventListener('click', () => {
         senha: senha,
     }
 
-
-    //salvou na memoria como string
-    localStorage.setItem('pessoa', JSON.stringify(usuario));
-
-    //pegando a string
-    let pessoaString = localStorage.getItem('pessoa');
-
-    //convertadno a strin em objeto
-    let pessoaObj = JSON.parse(pessoaString);
+    arr.push(usuario)
+    //salvando no localStorage(memoria) como uma string
+    localStorage.setItem('pessoa', JSON.stringify(arr));
 })
-
-
 
 const form = document.querySelector('form');
 form.addEventListener('submit', (event) => {

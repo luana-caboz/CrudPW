@@ -1,36 +1,56 @@
 //pegando a string
-let pessoaString = localStorage.getItem('pessoa');
+let dadosUsuarioString = localStorage.getItem('pessoa');
 
-//convertadno a strin em objeto
-let pessoaObj = JSON.parse(pessoaString);
+//convertadno a strin em array de objetos
+let dadosUsuario = JSON.parse(dadosUsuarioString);
 
 let tbody = document.querySelector('#tbody');
 
-let arr = []
-arr.push(pessoaObj)
+dadosUsuario.forEach(pessoaItem => {
+    let tr = document.createElement('tr');
 
-arr.forEach(pessoaItem => {
-    var tr = document.createElement('tr');
-
-    var tdNome = document.createElement('td');
+    let tdNome = document.createElement('td');
     tdNome.innerHTML = pessoaItem.nome;
     tr.appendChild(tdNome)
 
-    var tdDataNascimento = document.createElement('td');
+    let tdDataNascimento = document.createElement('td');
     tdDataNascimento.innerHTML = pessoaItem.DataNascimento;
     tr.appendChild(tdDataNascimento)
 
-    var tdCpf = document.createElement('td');
+    let tdCpf = document.createElement('td');
     tdCpf.innerHTML = pessoaItem.cpf;
     tr.appendChild(tdCpf)
 
-    var tdEmail = document.createElement('td');
+    let tdEmail = document.createElement('td');
     tdEmail.innerHTML = pessoaItem.email;
     tr.appendChild(tdEmail)
 
-    var tdSenha = document.createElement('td');
+    let tdSenha = document.createElement('td');
     tdSenha.innerHTML = pessoaItem.senha;
     tr.appendChild(tdSenha)
+
+    let tdAlterar = document.createElement('td');
+    let linkAlterar = document.createElement('a')
+    linkAlterar.setAttribute('href', 'alterar.html?id=' + pessoaItem.id)
+    linkAlterar.innerHTML = 'Alterar';
+    tdAlterar.appendChild(linkAlterar)
+    tr.appendChild(tdAlterar)
+
+    let tdDeletar = document.createElement('td');
+    let linkDeletar = document.createElement('a');
+    linkDeletar.setAttribute('href', ' ')
+    linkDeletar.innerHTML = 'Deletar';
+    linkDeletar.addEventListener('click', () => {Deletar(pessoaItem.id)})
+    tdDeletar.appendChild(linkDeletar)
+    tr.appendChild(tdDeletar)
+
     tbody.appendChild(tr)
 });
+
+
+function Deletar(id){
+    const response = dadosUsuario.filter(i => i.id != id)
+    localStorage.setItem('pessoa', JSON.stringify(response));
+}
+
 
