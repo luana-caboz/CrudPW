@@ -72,6 +72,8 @@ document.querySelector('#btnEnviar').addEventListener('click', () => {
     arr.push(usuario)
     //salvando no localStorage(memoria) como uma string
     localStorage.setItem('pessoa', JSON.stringify(arr));
+
+    window.location.href = 'index.html'
 })
 
 const form = document.querySelector('form');
